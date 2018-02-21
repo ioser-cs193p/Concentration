@@ -30,10 +30,15 @@ class ViewController: UIViewController
     private var gameBeingPlay = false
     private var game: Concentration?
     private var emojiChoices: Array<String>?
+    private var emojiThemes: Dictionary = [
+        "0" : ["👻", "🎃", "😾", "🦇", "🍎", "😱", "😈", "🍭", "🍬"],
+        "1" : ["🎱", "⚽️", "🏀", "🏈", "⚾️", "🎾", "🏐", "🏉", "🏓"],
+        "2" : ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒"]
+    ]
 
     @IBAction func startNewGame() {
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-        emojiChoices = ["👻", "🎃", "😾", "🦇", "🍎", "😱", "😈", "🍭", "🍬"]
+        emojiChoices = emojiThemes[String(emojiThemes.keys.count.arc4random)]
         updateViewFromModel()
         flipCount = 0
         gameBeingPlay = true

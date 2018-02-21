@@ -66,7 +66,9 @@ class Concentration
     
     func shuffle() {
         for i in cards.indices {
-            cards.swapAt(i, cards.count.arc4random)
+            let pos = cards.count.arc4random
+            cards.swapAt(i, pos)
+            print("Swapping \(i) and \(pos)")
         }
     }
 }
